@@ -22,6 +22,7 @@ public class Game {
 		this.death = false;
 		this.boss = false;
 		this.count = new int[3];
+		this.count[0] = 2;
 		this.count[1] = 3;
 		hero = new Hero("목어깨가아파요", 1000, 700, 0);
 		chitauri = new Chitauri("치타우리");
@@ -290,7 +291,7 @@ public class Game {
 			int count = Main.random.nextInt(3);
 			if (count != 0)
 				count = 1;
-			party.add(new Terrorist("테러범" + (i + 1), 300, 30, count));
+			party.add(new Terrorist("테러범" + (i + 1), 400, 30, count));
 		}
 
 		System.err.printf("\n%s 단체가 나타났다!!!\n", terrorist.getName());
@@ -437,7 +438,7 @@ public class Game {
 		ArrayList<Villain> party = new ArrayList<Villain>();
 		int num = 3;
 		for (int i = 0; i < num; i++) {
-			party.add(new Fenris("펜리스" + (i + 1), 300, 30));
+			party.add(new Fenris("펜리스" + (i + 1), 600, 50));
 		}
 
 		System.err.printf("\n%s가 나타났다!!!\n", fenris.getName());

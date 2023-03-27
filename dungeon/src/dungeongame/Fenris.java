@@ -15,21 +15,27 @@ public class Fenris extends Villain {
 		this.singleUse = 1;
 	}
 
+	public int getGIGANTIC() {
+		return GIGANTIC;
+	}
+
+	public int getSingleUse() {
+		return this.singleUse;
+	}
+
+	public void setSingleUse(int singleUse) {
+		this.singleUse = singleUse;
+	}
+
 	@Override
 	public void attack(Unit hero) {
 		if (hero instanceof Hero) {
 			Hero player = (Hero) hero;
 
-			if (this.getHp() <= GIGANTIC / 2 && this.singleUse == 1) {
-				this.setHp(this.getHp() + GIGANTIC);
-				this.singleUse--;
-				System.out.printf("%s가 흥분하여 거대해집니다.\n", this.getName());
-				System.out.println("HP를 회복하고 공격력이 소폭 상습합니다.");
-			}
-
 			this.setPower(Main.random(this.getAtt(), 20));
 			int damage = this.getPower();
-			if (this.singleUse != 1) {
+			if (this.singleUse == 0) {
+				System.err.printf("%s가 흥분하여 공격력이 소폭 상승합니다.\n", this.getName());
 				damage += 10;
 			}
 			if (player.getDotDamageCount() == 0) {
@@ -45,7 +51,7 @@ public class Fenris extends Villain {
 			if (player.getHp() <= 0) {
 				player.setHp(0);
 			}
-			System.out.printf("%s가 %s을(를) 공격합니다.", this.getName(), hero.getName());
+			System.out.printf("%s가 %s을(를) 공격합니다.\n", this.getName(), hero.getName());
 			Main.delay();
 			System.out.printf("%s의 HP가 %d만큼 감소합니다.\n", hero.getName(), damage);
 			System.out.printf("%s의 현재 HP : %d\n", hero.getName(), hero.getHp());

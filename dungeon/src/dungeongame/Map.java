@@ -66,7 +66,7 @@ public class Map {
 			if (i != size - 1)
 				System.out.print("¦ª");
 		}
-		System.out.println("¦¦");
+		System.out.println("¦¥");
 	}
 
 	public void printEasyMap() {
@@ -195,21 +195,23 @@ public class Map {
 
 		for (int i = 0; i < MAP_SIZE_HARD; i++) {
 			for (int j = 0; j < MAP_SIZE_HARD; j++) {
-				int random = Main.random(3, 0);
-				if (random == 0 && countInferior != 0) {
-					this.field[i][j] = inferior;
-					System.out.println(0);
-					countInferior--;
-				} else if (random == 1 && countInferior1 != 0) {
-					this.field[i][j] = inferior2;
-					System.out.println(1);
-					countInferior1--;
-				} else if (random == 2 && countInferior2 != 0) {
-					this.field[i][j] = inferior3;
-					System.out.println(2);
-					countInferior2--;
-				} else {
-					j--;
+				if (this.field[i][j] == 0) {
+					int random = Main.random(3, 0);
+					if (random == 0 && countInferior != 0) {
+						this.field[i][j] = inferior;
+						System.out.println(0);
+						countInferior--;
+					} else if (random == 1 && countInferior1 != 0) {
+						this.field[i][j] = inferior2;
+						System.out.println(1);
+						countInferior1--;
+					} else if (random == 2 && countInferior2 != 0) {
+						this.field[i][j] = inferior3;
+						System.out.println(2);
+						countInferior2--;
+					} else {
+						j--;
+					}
 				}
 			}
 		}

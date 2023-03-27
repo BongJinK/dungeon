@@ -46,8 +46,8 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		Game zombiegame = new Game();
-		zombiegame.run();
+		Game game = new Game();
+		game.run();
 
 	}
 }

@@ -39,6 +39,27 @@ public class Hero extends Unit implements Move {
 		} else if (enemy instanceof BinLaden) {
 			BinLaden boss = (BinLaden) enemy;
 			bossBinLaden(boss);
+		} else if (enemy instanceof Hela) {
+			Hela boss = (Hela) enemy;
+			bossHela(boss);
+		} else if (enemy instanceof Fenris) {
+			Fenris fenris = (Fenris) enemy;
+			
+			this.power = Main.random.nextInt(this.getAtt()) + 10;
+			
+			fenris.setHp(fenris.getHp() - this.power);
+			if (fenris.getHp() <= 0 && fenris.getSingleUse() == 1) {
+				fenris.setSingleUse(0);
+				fenris.setHp(fenris.getGIGANTIC());
+				System.out.printf("%s가 흥분하여 거대해집니다.\n", fenris.getName());
+			}else if(fenris.getHp() <= 0 && fenris.getSingleUse() == 0){
+				fenris.setHp(0);
+			}
+			
+			System.out.printf("%s가 %s을(를) 공격합니다.\n", this.getName(), enemy.getName());
+			Main.delay();
+			System.out.printf("%s의 HP가 %d만큼 감소합니다.\n", enemy.getName(), this.power);
+			System.out.printf("%s의 현재 HP : %d\n", enemy.getName(), enemy.getHp());
 		} else {
 			this.power = Main.random.nextInt(this.getAtt()) + 10;
 
@@ -97,6 +118,10 @@ public class Hero extends Unit implements Move {
 			System.out.printf("%s의 HP가 %d만큼 감소합니다.\n", boss.getName(), this.power);
 			System.out.printf("%s의 현재 HP : %d\n", boss.getName(), boss.getHp());
 		}
+	}
+	
+	private void bossHela(Hela boss) {
+		
 	}
 
 	public void recovery() {
