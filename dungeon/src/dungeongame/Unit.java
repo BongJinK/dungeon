@@ -8,6 +8,8 @@ abstract public class Unit {
 	private int hp;
 	private int att;
 	private String name;
+	
+
 
 	public Unit(String name) {
 		this.name = name;

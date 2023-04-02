@@ -17,19 +17,23 @@ public class Map {
 	static final int HELA = 5000;
 	static final int CLEAR = 777;
 
-	private int[][] field;
-	private int count;
+	public int[][] field;
+	public int count;
 
-	public int getCount() {
-		return count;
+	public Map() {
 	}
 
-	public void setCount(int count) {
-		this.count = count;
-	}
+//	public Map(int size) {
+//		this.field = new int[size][size];
+//		this.count = 0;
+//	}
 
 	public int[][] getField() {
 		return field;
+	}
+
+	public void setField(int[][] field) {
+		this.field = field;
 	}
 
 	public int getFieldDir(int y, int x) {
@@ -38,11 +42,6 @@ public class Map {
 
 	public void setFieldDir(int y, int x, int player) {
 		this.field[y][x] = player;
-	}
-
-	public Map(int size) {
-		this.field = new int[size][size];
-		this.count = 0;
 	}
 
 	private void topEdge(int size) {
@@ -199,15 +198,12 @@ public class Map {
 					int random = Main.random(3, 0);
 					if (random == 0 && countInferior != 0) {
 						this.field[i][j] = inferior;
-						System.out.println(0);
 						countInferior--;
 					} else if (random == 1 && countInferior1 != 0) {
 						this.field[i][j] = inferior2;
-						System.out.println(1);
 						countInferior1--;
 					} else if (random == 2 && countInferior2 != 0) {
 						this.field[i][j] = inferior3;
-						System.out.println(2);
 						countInferior2--;
 					} else {
 						j--;

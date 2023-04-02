@@ -4,6 +4,11 @@ public class Villain extends Unit {
 
 	private int power;
 	private int count;
+	
+	// 경험치 각각 몬스터 고정 값 
+	// gold : 범위 랜덤
+//	int exp;
+//	int gold;
 
 	public Villain(String name) {
 		super(name);

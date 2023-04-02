@@ -1,15 +1,35 @@
 package dungeongame;
 
-import java.util.InputMismatchException;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.Random;
-import java.util.Scanner;
+//import java.util.InputMismatchException;
+//import java.util.Scanner;
 
 public class Main {
 	public static final Random random = new Random();
-	public static final Scanner scanner = new Scanner(System.in);
+//	public static final Scanner scanner = new Scanner(System.in);
+
+	public static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	public static final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+	public static final StringBuilder sb = new StringBuilder();
+
+//	public static final StringBuffer buffer = new StringBuffer();
 
 	public static int random(int size, int start) {
 		return random.nextInt(size) + start;
+	}
+
+	public static void write(String text) {
+		try {
+			bw.write(text);
+			bw.flush();
+		} catch (IOException e) {
+		}
+		Main.sb.setLength(0);
 	}
 
 	public static void delay() {
@@ -25,10 +45,11 @@ public class Main {
 			int number = -1;
 			try {
 				System.out.printf("%s : ", message);
-				number = scanner.nextInt();
-			} catch (InputMismatchException e) {
+				number = Integer.parseInt(br.readLine());
+			} catch (IOException e) {
 				e.printStackTrace();
-				scanner.nextLine();
+			} catch (NumberFormatException e) {
+				e.printStackTrace();
 			}
 			if (number < 0)
 				continue;
@@ -37,11 +58,14 @@ public class Main {
 	}
 
 	public static char selectString(String message) {
-		while (true) {
+		char m = ' ';
+		try {
 			System.out.printf("%s : ", message);
-			char m = scanner.next().charAt(0);
-			return m;
+			m = br.readLine().charAt(0);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
+		return m;
 	}
 
 	public static void main(String[] args) {
