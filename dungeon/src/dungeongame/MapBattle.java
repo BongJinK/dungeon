@@ -16,10 +16,6 @@ public class MapBattle extends Map implements Easy, Normal, Hard {
 	private VillainBinLaden binladen;
 	private VillainHela hela;
 
-//	public MapBattle(int size) {
-//		super(size);
-//	}
-
 	public MapBattle() {
 		this.death = false;
 		this.boss = false;

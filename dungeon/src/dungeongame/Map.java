@@ -23,11 +23,6 @@ public class Map {
 	public Map() {
 	}
 
-//	public Map(int size) {
-//		this.field = new int[size][size];
-//		this.count = 0;
-//	}
-
 	public int[][] getField() {
 		return field;
 	}

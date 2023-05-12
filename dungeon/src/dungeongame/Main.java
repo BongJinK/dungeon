@@ -6,18 +6,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Random;
-//import java.util.InputMismatchException;
-//import java.util.Scanner;
 
 public class Main {
 	public static final Random random = new Random();
-//	public static final Scanner scanner = new Scanner(System.in);
 
 	public static final BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	public static final BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	public static final StringBuilder sb = new StringBuilder();
-
-//	public static final StringBuffer buffer = new StringBuffer();
 
 	public static int random(int size, int start) {
 		return random.nextInt(size) + start;
